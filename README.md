@@ -1,4 +1,6 @@
-My Stylish To-Do List Web Application
+MY STYLISH TO DO LIST WEBAPPLICATION
+
+
 A simple, yet stylish, web-based To-Do List application built with Flask, Python, and SQLite. This application allows users to manage their tasks through a clean and interactive web interface, with data persistence powered by a SQLite database.
 
 Features
