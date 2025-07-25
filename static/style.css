@@ -1,0 +1,239 @@
+/* Import Google Font - Poppins for a modern, clean look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins for all text */
+    margin: 0;
+    padding: 0;
+    /* Soft, inviting gradient background */
+    background: linear-gradient(135deg, #e0f2f7 0%, #c3e6f0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100vh; /* Ensure full viewport height */
+    padding-top: 60px; /* Space from the top of the viewport */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    color: #333; /* Default text color */
+}
+
+/* Main Container for the To-Do List */
+.container {
+    background: #ffffff; /* Pure white background for the card */
+    border-radius: 18px; /* More pronounced rounded corners */
+    /* Elegant, soft shadow for depth */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    padding: 45px; /* Increased padding inside the container */
+    width: 100%;
+    max-width: 650px; /* Wider container for better readability */
+    margin-bottom: 60px; /* Space at the bottom */
+    animation: fadeInScale 0.8s ease-out forwards; /* Fade-in and slight scale animation */
+}
+
+/* Keyframe animation for the container */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translateY(-30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Heading Style */
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Darker, sophisticated grey */
+    margin-bottom: 40px; /* More space below heading */
+    font-size: 2.8em; /* Larger, more impactful heading */
+    font-weight: 700; /* Extra bold */
+    position: relative; /* For the pseudo-element underline */
+    letter-spacing: -0.5px; /* Slightly tighter letter spacing */
+}
+
+/* Decorative underline for the heading */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Position below the text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Wider underline */
+    height: 5px; /* Thicker underline */
+    background-color: #4CAF50; /* A vibrant green accent */
+    border-radius: 3px;
+}
+
+/* Add Task Form Styling */
+form {
+    display: flex;
+    margin-bottom: 35px; /* More space below the form */
+    background: #f8f9fa; /* Light grey background for the input area */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 12px; /* Rounded form corners */
+    overflow: hidden; /* Ensures contents respect border-radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow for the input field */
+}
+
+form input[type="text"] {
+    flex-grow: 1; /* Input takes up available space */
+    padding: 16px 22px; /* Generous padding */
+    border: none; /* Remove default input border */
+    font-size: 1.15em; /* Larger font size for input text */
+    outline: none; /* Remove focus outline */
+    background: transparent; /* Transparent background to show form's background */
+    color: #333; /* Input text color */
+}
+
+form input[type="text"]::placeholder {
+    color: #a0a0a0; /* Placeholder text color */
+}
+
+form button {
+    padding: 16px 30px; /* Generous padding for the button */
+    background-color: #4CAF50; /* Vibrant green button */
+    color: white; /* White text */
+    border: none;
+    cursor: pointer;
+    font-size: 1.15em; /* Larger font size for button text */
+    font-weight: 600; /* Semi-bold text */
+    border-radius: 0 12px 12px 0; /* Rounded only on the right side */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+form button:active {
+    transform: translateY(0); /* Press down effect */
+}
+
+/* Task List Styling */
+.task-list {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    background: #ffffff; /* White background for each task item */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 12px; /* Rounded corners for list items */
+    margin-bottom: 18px; /* More space between tasks */
+    padding: 20px 28px; /* More padding inside each task item */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    position: relative; /* For the left border indicator */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+.task-list li:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* More pronounced shadow on hover */
+    transform: translateY(-4px); /* More noticeable lift on hover */
+}
+
+/* Left border indicator for tasks */
+.task-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px; /* Thicker border */
+    background-color: #007bff; /* Blue for incomplete tasks */
+    border-radius: 12px 0 0 12px; /* Rounded only on the left side */
+}
+
+/* Task Description Text */
+.task-description {
+    flex-grow: 1; /* Text takes up most space */
+    font-size: 1.2em; /* Larger text for task description */
+    color: #444; /* Darker text color */
+    padding-right: 25px; /* Space between text and action buttons */
+    word-break: break-word; /* Prevents long words from overflowing */
+    line-height: 1.5; /* Improved line spacing */
+    transition: color 0.3s ease;
+}
+
+/* Styling for completed tasks */
+.task-list li.completed {
+    background-color: #f8f8f8; /* Slightly greyed out background for completed tasks */
+}
+
+.task-list li.completed .task-description {
+    text-decoration: line-through; /* Strikethrough for completed tasks */
+    color: #a0a0a0; /* Lighter grey for completed text */
+    font-style: italic; /* Italicize completed text */
+}
+
+/* Change left border color for completed tasks */
+.task-list li.completed::before {
+    background-color: #5cb85c; /* A softer green for completed tasks */
+}
+
+/* Action Buttons Container */
+.actions {
+    display: flex;
+    gap: 15px; /* More space between buttons */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* General Action Button Styling */
+.action-button {
+    text-decoration: none;
+    font-size: 1em; /* Standard font size */
+    padding: 10px 16px; /* Generous padding */
+    border-radius: 8px; /* Rounded button corners */
+    font-weight: 500; /* Medium font weight */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* All-encompassing transition */
+    white-space: nowrap; /* Prevent buttons from wrapping */
+    border: 1px solid; /* Define border for styling */
+}
+
+/* Mark/Unmark Button */
+.action-button.mark-complete {
+    color: #007bff; /* Blue text */
+    border-color: #007bff; /* Blue border */
+    background-color: transparent; /* Transparent background */
+}
+.action-button.mark-complete:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Blue shadow on hover */
+}
+
+/* Delete Button */
+.action-button.delete {
+    color: #dc3545; /* Red text */
+    border-color: #dc3545; /* Red border */
+    background-color: transparent; /* Transparent background */
+}
+.action-button.delete:hover {
+    background-color: #dc3545; /* Red background on hover */
+    color: white; /* White text on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2); /* Red shadow on hover */
+}
+
+/* No tasks message styling */
+.no-tasks-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 40px;
+    font-size: 1.2em; /* Larger font size */
+    padding: 20px;
+    background-color: #f0f2f5; /* Light background */
+    border-radius: 10px;
+    border: 2px dashed #d0d0d0; /* Dashed border */
+    line-height: 1.6;
+}
+
+/* Accessibility: Focus styles */
+input[type="text"]:focus,
+button:focus,
+.action-button:focus {
+    outline: 3px solid #4CAF50; /* Green outline on focus */
+    outline-offset: 3px; /* Offset the outline from the element */
+}
